@@ -1,0 +1,165 @@
+.lpage-layout {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f1f5f9;
+}
+
+/* Sidebar */
+.lpage-sidebar {
+  width: 260px;
+  background: linear-gradient(160deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 24px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.lpage-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.lpage-logo {
+  width: 50px;
+  height: auto;
+}
+
+.lpage-menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lpage-menu-list li,
+.lpage-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.lpage-menu-list li:hover,
+.lpage-dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.lpage-dropdown-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 12px;
+  margin-top: 6px;
+}
+
+.lpage-dropdown-buttons button {
+  background: linear-gradient(90deg, #e0f2fe, #bae6fd);
+  border: none;
+  color: #0c4a6e;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.lpage-dropdown-buttons button:hover {
+  background: #e0f7ff;
+}
+
+/* Main content */
+.lpage-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.lpage-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(to right, #0ea5e9, #3b82f6);
+  padding: 20px 30px;
+  color: white;
+  font-size: 18px;
+  gap: 20px;
+}
+
+.lpage-profile-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.lpage-profile-link:hover {
+  opacity: 0.8;
+}
+
+.lpage-top-button.lpage-logout {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  max-width: 150px;
+  white-space: nowrap;
+}
+
+.lpage-top-button.lpage-logout:hover {
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  transform: scale(1.05);
+}
+
+/* Content Styling */
+.lpage-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  overflow-y: auto;
+  border-radius: 0 12px 0 0;
+}
+
+.lpage-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.lpage-content h2,
+.lpage-content h3 {
+  color: #0f172a;
+  margin-top: 30px;
+}
+
+.lpage-content p,
+.lpage-content ul {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #334155;
+  max-width: 800px;
+}
+
+.lpage-content ul {
+  padding-left: 20px;
+}
+
+.lpage-content li {
+  margin-bottom: 10px;
+}

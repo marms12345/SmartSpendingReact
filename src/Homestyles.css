@@ -1,0 +1,72 @@
+.home-page-header {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+
+.home-page-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.home-page-auth-buttons .home-page-btn {
+  margin-left: 10px;
+  background-color: white;
+  color: #007bff;
+  border: none;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.home-page-welcome-section {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #f3f3f3;
+}
+
+.home-page-welcome-section h1 {
+  color: #007bff;
+  font-size: 2rem;
+}
+
+.home-page-features-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.home-page-features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.home-page-feature-card {
+  background-color: #007bff;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 22%;
+  min-width: 250px;
+}
+
+.home-page-footer {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.home-page-footer-links span {
+  margin-left: 20px;
+  cursor: pointer;
+}

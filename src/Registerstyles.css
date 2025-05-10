@@ -1,0 +1,78 @@
+/* Register page main heading */
+.register-page-mainHeading {
+  background-color: #007bff;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.register-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-page-container form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.register-page-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register-page-container input,
+.register-page-container select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.register-page-container input:focus,
+.register-page-container select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.register-page-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-page-container button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .register-page-container form {
+    padding: 25px;
+  }
+
+  .register-page-container h2 {
+    font-size: 20px;
+  }
+}
