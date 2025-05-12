@@ -1,3 +1,4 @@
+
 .lpage-layout {
   display: flex;
   height: 100vh;
@@ -162,4 +163,45 @@
 
 .lpage-content li {
   margin-bottom: 10px;
+}
+
+
+/* Burger button styling */
+.lpage-burger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+/* Sidebar collapsed state */
+.collapsed .lpage-sidebar {
+  width: 80px;
+  padding: 20px 12px;
+}
+
+.collapsed .lpage-logo-container h2,
+.collapsed .lpage-logo {
+  display: none;
+}
+
+.collapsed .lpage-menu-list li,
+.collapsed .lpage-dropdown-toggle {
+  justify-content: center;
+  padding: 12px 0;
+  font-size: 0;
+}
+
+.collapsed .lpage-menu-list i {
+  font-size: 18px;
+}
+
+/* Dropdown pushes down content */
+.lpage-dropdown-buttons-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0 10px 20px;
 }

@@ -1,0 +1,72 @@
+.transaction-form-mainHeading {
+  background-color: #007bff;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.transaction-form-container {
+  width: 70%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+.transaction-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.transaction-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.transaction-form .form-button {
+  display: flex;
+  justify-content: center;
+}
+
+.transaction-form-submit-btn {
+  width: 100%;
+  max-width: 200px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-form-submit-btn:hover {
+  background-color: #0056b3;
+}
