@@ -1,137 +1,108 @@
-.lpage-layout {
+/* Container for the entire form */
+.login-page-container {
   display: flex;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.lpage-sidebar {
-  background-color: #1e1e2f;
-  color: white;
-  width: 100px; /* Reduce from 250px to 200px */
-  transition: width 0.3s ease;
-  overflow-x: hidden;
+/* Left section with the image */
+.login-page-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login-page-left img {
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* This keeps the image full size without distortion */
+}
+
+/* Right section where the form is */
+.login-page-right {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-page-form-wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login-page-right h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-page-right p {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-page-right a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Flex layout for the form */
+.login-page-right form {
   display: flex;
   flex-direction: column;
 }
 
-.lpage-sidebar.collapsed {
-  width: 10px; /* Adjusted collapsed width */
+/* Styling inputs for email and password */
+.login-page-right input[type="email"],
+.login-page-right input[type="password"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-
-.lpage-logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background-color: #282a3a;
+/* Align options like "forgot password" text */
+.login-page-right .login-page-form-options {
+  text-align: right;
+  margin-bottom: 15px;
 }
 
-.lpage-burger {
-  background: none;
+/* Sign in button styles */
+.login-page-right button {
+  padding: 12px;
+  background-color: #007bff;
   border: none;
   color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.lpage-menu-list {
-  list-style: none;
-  padding: 0;
-}
-
-.lpage-menu-list li {
-  padding: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.2s;
-}
-
-.lpage-menu-list li:hover {
-  background-color: #3a3b4d;
-}
-
-.lpage-dropdown-toggle {
-  width: 100%;
-  background: none;
-  border: none;
-  color: white;
-  padding: 1rem;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.lpage-dropdown {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.lpage-dropdown-buttons {
-  display: flex;
-  flex-direction: column; /* Ensures buttons stack vertically */
-  margin-left: 1.5rem;     /* Optional: slight indent */
-  margin-top: 0.25rem;
-  width: 100%;
-}
-
-.lpage-dropdown-buttons button {
-  background: none;
-  border: none;
-  text-align: left;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  color: #fff;
-  font-size: 0.9rem;
-  width: 100%;
-}
-
-.lpage-dropdown-buttons button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.lpage-main {
-  flex-grow: 1;
-  background-color: #f4f4f4;
-  padding: 1rem;
-  margin-left: 10px; /* Adjust margin based on sidebar width */
-}
-
-.lpage-topbar {
-  display: flex;
-  justify-content: space-between;
-  background-color: #ffffff;
-  padding: 0.8rem 1.5rem; /* Reduced padding */
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.lpage-top-button {
-  background-color: #e74c3c;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
+  font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
-.lpage-profile-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+.login-page-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  width: fit-content;
+  white-space: nowrap;
 }
 
-.lpage-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.login-page-checkbox input[type="checkbox"] {
+  margin: 0;
+  transform: scale(1.2); /* optional for better visibility */
+  vertical-align: middle;
+}
+
+/* Terms and conditions styling */
+.login-page-terms {
+  font-size: 12px;
+  color: #555;
 }
