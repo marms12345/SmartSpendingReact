@@ -5,25 +5,34 @@ import RealTimeBarChart from './RealTimeBarChart';
 import DonutChartComponent from './DonutChartComponent';
 import TransactionForm from './TransactionForm';
 import TransactionList from "./TransactionList";
+import { useNavigate } from 'react-router-dom'; // correct place
 
 const Lpage = () => {
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // "dashboard" or "transaction" or null
+  const navigate = useNavigate(); // ✅ moved to top level
+
+  const [openDropdown, setOpenDropdown] = useState(null); 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [activeComponent, setActiveComponent] = useState("Home");
 
   const handleSelect = (componentName) => {
-  setActiveComponent(componentName);
-  setOpenDropdown(null); // closes any open dropdown
-};
-
-
-  // const handleToggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-  const handleToggleDropdown = (menu) => {
-  setOpenDropdown((prev) => (prev === menu ? null : menu));
+    setActiveComponent(componentName);
+    setOpenDropdown(null);
   };
 
-  const handleSidebarToggle = () => setIsSidebarCollapsed(!isSidebarCollapsed);
+  const handleToggleDropdown = (menu) => {
+    setOpenDropdown((prev) => (prev === menu ? null : menu));
+  };
+
+  const handleSidebarToggle = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    navigate('/');
+    alert('You have been logged out.');
+  };
 
   return (
     <div className={`lpage-layout ${isSidebarCollapsed ? "collapsed" : ""}`}>
@@ -32,72 +41,62 @@ const Lpage = () => {
           <button className="lpage-burger" onClick={handleSidebarToggle}>
             <i className="fa-solid fa-bars"></i>
           </button>
-          {!isSidebarCollapsed && (
-            <>
-              {/* <img src="/images/smartspendingimage.png" alt="Smart Spending" className="lpage-logo" /> */}
-              {/* <h2>Smart Spending</h2> */}
-            </>
-          )}
         </div>
 
         <ul className="lpage-menu-list">
-          <li onClick={() => handleSelect("Home")}> <i className="fa-solid fa-house"></i> {!isSidebarCollapsed && "Home"} </li>
-
-          {/* <li onClick={handleToggleDropdown} className="lpage-dropdown-toggle"><i className="fa-solid fa-gauge-simple-high"></i> {!isSidebarCollapsed && "Dashboard"}</li> */}
-
-          {/* Dashboard Submenu - placed OUTSIDE the list */}
-          <li onClick={() => handleToggleDropdown("dashboard")} className="lpage-dropdown-toggle">
-          <i className="fa-solid fa-gauge-simple-high"></i> {!isSidebarCollapsed && "Dashboard"}
+          <li onClick={() => handleSelect("Home")}> 
+            <i className="fa-solid fa-house"></i> {!isSidebarCollapsed && "Home"} 
           </li>
 
-               {openDropdown === "dashboard" && !isSidebarCollapsed && (
-          <div className="lpage-dropdown-buttons">
-            {[
-              "Real-Time Spending Analysis",
-              "Expense Categorization",
-              "Spending Alerts",
-              "Smart Payment Suggestions"
-            ].map((name) => (
-              <button key={name} onClick={() => handleSelect(name)}>{name}</button>
-            ))}
-          </div>
-        )}
+          <li onClick={() => handleToggleDropdown("dashboard")} className="lpage-dropdown-toggle">
+            <i className="fa-solid fa-gauge-simple-high"></i> {!isSidebarCollapsed && "Dashboard"}
+          </li>
+          {openDropdown === "dashboard" && !isSidebarCollapsed && (
+            <div className="lpage-dropdown-buttons">
+              {["Real-Time Spending Analysis", "Expense Categorization", "Spending Alerts", "Smart Payment Suggestions"]
+                .map((name) => (
+                  <button key={name} onClick={() => handleSelect(name)}>{name}</button>
+              ))}
+            </div>
+          )}
 
-
-
-          {/* <li onClick={() => handleSelect("Transaction")}> <i className="fa-solid fa-money-check-dollar"></i> {!isSidebarCollapsed && "Transaction"} </li> */}
           <li onClick={() => handleToggleDropdown("transaction")} className="lpage-dropdown-toggle">
-  <i className="fa-solid fa-money-check-dollar"></i> {!isSidebarCollapsed && "Transaction"}
-</li>
+            <i className="fa-solid fa-money-check-dollar"></i> {!isSidebarCollapsed && "Transaction"}
+          </li>
+          {openDropdown === "transaction" && !isSidebarCollapsed && (
+            <div className="lpage-dropdown-buttons">
+              {["New Transaction", "Show Transactions"].map((name) => (
+                <button key={name} onClick={() => handleSelect(name)}>{name}</button>
+              ))}
+            </div>
+          )}
 
-{openDropdown === "transaction" && !isSidebarCollapsed && (
-  <div className="lpage-dropdown-buttons">
-    {["New Transaction", "Show Transactions"].map((name) => (
-      <button key={name} onClick={() => handleSelect(name)}>{name}</button>
-    ))}
-  </div>
-)}
-
-          <li onClick={() => handleSelect("Print")}> <i className="fa-solid fa-print"></i> {!isSidebarCollapsed && "Print"} </li>
-          <li onClick={() => handleSelect("AboutUs")}> <i className="fa-solid fa-users"></i> {!isSidebarCollapsed && "About Us"} </li>
-          <li onClick={() => handleSelect("Settings")}> <i className="fa-solid fa-screwdriver-wrench"></i> {!isSidebarCollapsed && "Settings"} </li>
+          <li onClick={() => handleSelect("Print")}> 
+            <i className="fa-solid fa-print"></i> {!isSidebarCollapsed && "Print"} 
+          </li>
+          <li onClick={() => handleSelect("AboutUs")}> 
+            <i className="fa-solid fa-users"></i> {!isSidebarCollapsed && "About Us"} 
+          </li>
+          <li onClick={() => handleSelect("Settings")}> 
+            <i className="fa-solid fa-screwdriver-wrench"></i> {!isSidebarCollapsed && "Settings"} 
+          </li>
         </ul>
       </aside>
 
       <main className="lpage-main">
         <div className="lpage-topbar">
           <a className="lpage-profile-link" href="/profile">Profile</a>
-          <button className="lpage-top-button lpage-logout">Logout</button>
+          <button className="lpage-top-button lpage-logout" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
 
         <div className="lpage-content">
           {activeComponent === "Home" && <Home />}
           {activeComponent === "Real-Time Spending Analysis" && <RealTimeBarChart />}
-          {activeComponent === "Expense Categorization" && <DonutChartComponent  />}
+          {activeComponent === "Expense Categorization" && <DonutChartComponent />}
           {activeComponent === "New Transaction" && <TransactionForm />}
           {activeComponent === "Show Transactions" && <TransactionList />}
-
-          {/* Add conditional rendering for other components as needed */}
         </div>
       </main>
     </div>
@@ -105,89 +104,3 @@ const Lpage = () => {
 };
 
 export default Lpage;
-
-
-
-
-
-// import React, { useState } from "react";
-// import "./Lpagestyles.css";
-// import Home from './Home';
-// import RealTimeBarChart from './RealTimeBarChart';
-// import DonutChartComponent from './DonutChartComponent';
-
-// const Lpage = () => {
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-//   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-//   const [activeComponent, setActiveComponent] = useState("Home");
-
-//   const handleSelect = (componentName) => {
-//     setActiveComponent(componentName);
-//     setIsDropdownOpen(false);
-//   };
-
-//   const handleToggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-//   const handleSidebarToggle = () => setIsSidebarCollapsed(!isSidebarCollapsed);
-
-//   return (
-//     <div className={`lpage-layout ${isSidebarCollapsed ? "collapsed" : ""}`}>
-//       <aside className="lpage-sidebar">
-//         <div className="lpage-logo-container">
-//           <button className="lpage-burger" onClick={handleSidebarToggle}>
-//             <i className="fa-solid fa-bars"></i>
-//           </button>
-//           {!isSidebarCollapsed && (
-//             <>
-//               {/* <img src="/images/smartspendingimage.png" alt="Smart Spending" className="lpage-logo" /> */}
-//               {/* <h2>Smart Spending</h2> */}
-//             </>
-//           )}
-//         </div>
-
-//         <ul className="lpage-menu-list">
-//           <li onClick={() => handleSelect("Home")}> <i className="fa-solid fa-house"></i> {!isSidebarCollapsed && "Home"} </li>
-
-//           <li onClick={handleToggleDropdown} className="lpage-dropdown-toggle"><i className="fa-solid fa-gauge-simple-high"></i> {!isSidebarCollapsed && "Dashboard"}</li>
-
-//           {/* Dashboard Submenu - placed OUTSIDE the list */}
-//           {isDropdownOpen && !isSidebarCollapsed && (
-//             <div className="lpage-dropdown-buttons">
-//               {[
-//                 "Real-Time Spending Analysis",
-//                 "Expense Categorization",
-//                 "Spending Alerts",
-//                 "Smart Payment Suggestions"
-//               ].map((name) => (
-//                 <button key={name} onClick={() => handleSelect(name)}>
-//                   {name}
-//                 </button>
-//               ))}
-//             </div>
-//           )}
-
-
-//           <li onClick={() => handleSelect("Transaction")}> <i className="fa-solid fa-money-check-dollar"></i> {!isSidebarCollapsed && "Transaction"} </li>
-//           <li onClick={() => handleSelect("Print")}> <i className="fa-solid fa-print"></i> {!isSidebarCollapsed && "Print"} </li>
-//           <li onClick={() => handleSelect("AboutUs")}> <i className="fa-solid fa-users"></i> {!isSidebarCollapsed && "About Us"} </li>
-//           <li onClick={() => handleSelect("Settings")}> <i className="fa-solid fa-screwdriver-wrench"></i> {!isSidebarCollapsed && "Settings"} </li>
-//         </ul>
-//       </aside>
-
-//       <main className="lpage-main">
-//         <div className="lpage-topbar">
-//           <a className="lpage-profile-link" href="/profile">Profile</a>
-//           <button className="lpage-top-button lpage-logout">Logout</button>
-//         </div>
-
-//         <div className="lpage-content">
-//           {activeComponent === "Home" && <Home />}
-//           {activeComponent === "Real-Time Spending Analysis" && <RealTimeBarChart />}
-//           {activeComponent === "Expense Categorization" && <DonutChartComponent  />}
-//           {/* Add conditional rendering for other components as needed */}
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default Lpage;

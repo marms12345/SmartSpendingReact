@@ -10,14 +10,13 @@ import RealTimeBarChart from "./RealTimeBarChart";
 import DonutChartComponent from "./DonutChartComponent";
 import TransactionForm from "./TransactionForm";
 import TransactionList from "./TransactionList";
+import SpendingOverviewTabs from './SpendingOverviewTabs';
+
 
 function App() {
   return (
-    <div>
-      <div>
+     <div>
         <Router>
-          
-          
           <div>
             <Routes>
               {/* As we are now able to connect the backend we need dont need this anymore we can keep this in the
@@ -35,11 +34,17 @@ function App() {
           </div>
         </Router>
       </div>
-    </div>
   );
 }
 
 export default App;
+
+
+// use this as the main one all the time
+
+ 
+
+
 
 // <div>
 //         {/* <Login /> */}

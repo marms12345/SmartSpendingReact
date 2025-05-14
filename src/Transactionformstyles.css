@@ -1,3 +1,4 @@
+/* Main Heading */
 .transaction-form-mainHeading {
   background-color: #007bff;
   height: 70px;
@@ -6,6 +7,7 @@
   text-align: center;
 }
 
+/* Form Container */
 .transaction-form-container {
   width: 70%;
   max-width: 400px;
@@ -16,12 +18,14 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Heading */
 .transaction-form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #007bff;
 }
 
+/* Form Group */
 .transaction-form .form-group {
   margin-bottom: 1.5rem;
 }
@@ -49,6 +53,7 @@
   outline: none;
 }
 
+/* Submit Button */
 .transaction-form .form-button {
   display: flex;
   justify-content: center;
@@ -69,4 +74,67 @@
 
 .transaction-form-submit-btn:hover {
   background-color: #0056b3;
+}
+
+/* CSV Upload Section */
+.transaction-form-upload-csv-container {
+  width: 70%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transaction-form-upload-csv-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.transaction-form-upload-csv-container input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.transaction-form-custom-file-upload {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-form-custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+.transaction-form-upload-csv-btn {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+  padding: 0.75rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-form-upload-csv-btn:hover {
+  background-color: #0056b3;
+}
+
+.transaction-list-container .form-button {
+  gap: 1rem;
 }

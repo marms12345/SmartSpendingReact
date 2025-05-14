@@ -21,50 +21,84 @@ const CATEGORIES = [
 
 const DonutChartComponent = () => {
   const [chartData, setChartData] = useState([]);
+  const [dataSource, setDataSource] = useState("backend"); // New toggle state
+
+  const fetchFromBackend = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/expense/retrieval');
+      const data = await response.json();
+      processExpenses(data.transactions);
+    } catch (error) {
+      console.error('Error fetching backend data:', error);
+    }
+  };
+
+  const fetchFromCSV = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/upload/csv-records');
+      const data = await response.json();
+      processExpenses(data.records);
+    } catch (error) {
+      console.error('Error fetching CSV data:', error);
+    }
+  };
+
+  const processExpenses = (expenses) => {
+    const categoryMap = CATEGORIES.reduce((acc, cat) => {
+      acc[cat] = 0;
+      return acc;
+    }, { Others: 0 });
+
+    expenses.forEach((item) => {
+      const category = item.category || 'Others';
+      const amount = parseFloat(item.amount) || 0;
+      if (categoryMap.hasOwnProperty(category)) {
+        categoryMap[category] += amount;
+      } else {
+        categoryMap['Others'] += amount;
+      }
+    });
+
+    const formattedData = Object.entries(categoryMap)
+      .filter(([_, value]) => value > 0)
+      .map(([name, value]) => ({ name, value }));
+
+    setChartData(formattedData);
+  };
 
   useEffect(() => {
-    const fetchExpenses = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/expense/retrieval');
-        const data = await response.json();
-        const expenses = data.transactions; 
-
-        const categoryMap = CATEGORIES.reduce((acc, cat) => {
-          acc[cat] = 0;
-          return acc;
-        }, {});
-
-        expenses.forEach((item) => {
-          const category = item.category || 'Others';
-          const amount = parseFloat(item.amount) || 0;
-          if (categoryMap.hasOwnProperty(category)) {
-            categoryMap[category] += amount;
-          } else {
-            categoryMap['Others'] += amount;
-          }
-        });
-
-        const formattedData = Object.entries(categoryMap)
-          .filter(([_, value]) => value > 0)
-          .map(([name, value]) => ({ name, value }));
-
-        setChartData(formattedData);
-      } catch (error) {
-        console.error('Error fetching expense data:', error);
-      }
-    };
-
-    fetchExpenses();
-  }, []);
+    if (dataSource === "backend") {
+      fetchFromBackend();
+    } else {
+      fetchFromCSV();
+    }
+  }, [dataSource]);
 
   return (
     <div className="donut-chart-container">
       <div>
         <SpendingOverviewTabs />
       </div>
+
+      {/* Toggle Buttons */}
+      <div className="realtimebarchart-buttons">
+        <button
+          className={`toggle-btn ${dataSource === "backend" ? "active" : ""}`}
+          onClick={() => setDataSource("backend")}
+        >
+          Backend
+        </button>
+        <button
+          className={`toggle-btn ${dataSource === "csv" ? "active" : ""}`}
+          onClick={() => setDataSource("csv")}
+        >
+          CSV
+        </button>
+      </div>
+
       <div className="chart-wrapper">
-        <h3 className="chart-title">Expenditure Breakdown</h3>
-        <ResponsiveContainer  width="100%" height={400}>
+        <h3 className="chart-title">Expenditure Breakdown ({dataSource.toUpperCase()})</h3>
+        <ResponsiveContainer width="100%" height={400}>
           <PieChart>
             <Pie
               data={chartData}

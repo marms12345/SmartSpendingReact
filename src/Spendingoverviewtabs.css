@@ -1,41 +1,68 @@
+/* Main container with light blue background */
 .spendingoverviewtab-page-tabs-container {
   display: flex;
-  gap: 15px;
-  justify-content: space-between;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #ffffff;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+  background-color: #e0f2ff; /* light blue background */
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Smaller, cleaner cards */
 .spendingoverviewtab-page-tab-card {
-  flex: 1;
-  background-color: #e3f2fd;
-  padding: 15px;
+  background: white;
+  padding: 12px 14px;
   border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  width: 150px;
   text-align: center;
-  transition: transform 0.2s ease;
-  border: 1px solid #cfd8dc;
-}
-
-.spendingoverviewtab-page-tab-card:hover {
-  transform: scale(1.03);
-  background-color: #bbdefb;
 }
 
 .spendingoverviewtab-page-tab-icon {
-  margin-bottom: 8px;
-  color: #1976d2;
+  color: #3b82f6;
+  margin-bottom: 6px;
 }
 
 .spendingoverviewtab-page-tab-value {
-  font-weight: bold;
-  font-size: 20px;
-  color: #0d47a1;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1e293b;
 }
 
 .spendingoverviewtab-page-tab-label {
-  font-size: 14px;
-  color: #555;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Toggle buttons below cards, compact and styled */
+.spendingoverviewtab-page-toggle-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.spendingoverviewtab-page-toggle-buttons button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 16px;
+  background-color: #bae6fd;
+  color: #0c4a6e;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease;
+}
+
+.spendingoverviewtab-page-toggle-buttons button:hover {
+  background-color: #7dd3fc;
+}
+
+.spendingoverviewtab-page-toggle-buttons button.active {
+  background-color: #0ea5e9;
+  color: white;
 }
