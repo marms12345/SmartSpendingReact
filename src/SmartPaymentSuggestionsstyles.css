@@ -1,0 +1,15 @@
+.spendingalerts-container {
+  padding: 1rem;
+  background-color: #f9f9ff;
+}
+
+.spendingalerts-alert-box {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fff3cd;
+  border-left: 6px solid #ffcc00;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #664d03;
+}

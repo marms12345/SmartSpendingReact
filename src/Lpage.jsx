@@ -5,6 +5,8 @@ import RealTimeBarChart from './RealTimeBarChart';
 import DonutChartComponent from './DonutChartComponent';
 import TransactionForm from './TransactionForm';
 import TransactionList from "./TransactionList";
+import SpendingAlerts from './SpendingAlerts';
+import SmartPaymentSuggestions from './SmartPaymentSuggestions';
 import { useNavigate } from 'react-router-dom'; // correct place
 
 const Lpage = () => {
@@ -97,6 +99,8 @@ const Lpage = () => {
           {activeComponent === "Expense Categorization" && <DonutChartComponent />}
           {activeComponent === "New Transaction" && <TransactionForm />}
           {activeComponent === "Show Transactions" && <TransactionList />}
+          {activeComponent === "Spending Alerts" && <SpendingAlerts />}
+          {activeComponent === "Smart Payment Suggestions" && <SmartPaymentSuggestions />}
         </div>
       </main>
     </div>

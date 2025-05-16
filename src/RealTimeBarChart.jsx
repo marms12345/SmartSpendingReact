@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import SpendingOverviewTabs from './SpendingOverviewTabs';
+// import SpendingOverviewTabs from './SpendingOverviewTabs';
 import { startOfWeek, startOfMonth, startOfYear, isSameDay, parseISO } from 'date-fns';
 import "./Realtimebarchartstyles.css";
 
@@ -77,9 +77,9 @@ const RealTimeBarChart = () => {
 
   return (
     <div>
-      <div>
-        <SpendingOverviewTabs />
-      </div>
+      {/* <div> */}
+        {/* <SpendingOverviewTabs /> */}
+      {/* </div> */}
 
       <div className="realtimebarchart-buttons">
         <button

@@ -12,7 +12,6 @@ import TransactionForm from "./TransactionForm";
 import TransactionList from "./TransactionList";
 import SpendingOverviewTabs from './SpendingOverviewTabs';
 
-
 function App() {
   return (
      <div>
@@ -41,10 +40,6 @@ export default App;
 
 
 // use this as the main one all the time
-
- 
-
-
 
 // <div>
 //         {/* <Login /> */}

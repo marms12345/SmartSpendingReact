@@ -44,7 +44,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="home-page-footer">
+      {/* <footer className="home-page-footer">
         <div className="home-page-contact">
           <strong>Contact Us</strong><br />
           Email: support@smartspending.com<br />
@@ -55,7 +55,7 @@ const Home = () => {
           <span>Privacy Policy</span>
           <span>FAQ</span>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
-import SpendingOverviewTabs from './SpendingOverviewTabs';
+// import SpendingOverviewTabs from './SpendingOverviewTabs';
 import './DonutChartComponent.css';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AA00FF', '#FF69B4', '#33FF57', '#FF3333', '#9933FF'];
@@ -76,9 +76,9 @@ const DonutChartComponent = () => {
 
   return (
     <div className="donut-chart-container">
-      <div>
-        <SpendingOverviewTabs />
-      </div>
+      {/* <div> */}
+        {/* <SpendingOverviewTabs /> */}
+      {/* </div> */}
 
       {/* Toggle Buttons */}
       <div className="realtimebarchart-buttons">
